@@ -22,17 +22,17 @@ namespace REST.API.GlobalExceptions.Exceptions
 
         public CustomApiException() { }
         public CustomApiException(string message) : base(message) { }
-        public CustomApiException(string message, Exception ex) : base($"{CommonException.CustomExceptionPrefix} {message}", ex) { }
-        public CustomApiException(HttpStatusCode statusCode, string message) : base($"{CommonException.CustomExceptionPrefix} {message}")
+        public CustomApiException(string message, Exception ex) : base($"{CommonExceptionConstants.CustomExceptionPrefix} {message}", ex) { }
+        public CustomApiException(HttpStatusCode statusCode, string message) : base($"{CommonExceptionConstants.CustomExceptionPrefix} {message}")
         {
             _statusCode = statusCode;
         }
-        public CustomApiException(HttpStatusCode statusCode, Exception ex) : base($"{CommonException.CustomExceptionPrefix} {ex.Message}")
+        public CustomApiException(HttpStatusCode statusCode, Exception ex) : base($"{CommonExceptionConstants.CustomExceptionPrefix} {ex.Message}")
         {
             _statusCode = statusCode;
             _exceptionStrckTrace = ex.StackTrace;
         }
-        public CustomApiException(HttpStatusCode statusCode, string message, Exception ex) : base($"{CommonException.CustomExceptionPrefix} {message}")
+        public CustomApiException(HttpStatusCode statusCode, string message, Exception ex) : base($"{CommonExceptionConstants.CustomExceptionPrefix} {message}")
         {
             _statusCode = statusCode;
             _exceptionStrckTrace = ex.StackTrace;

@@ -42,7 +42,7 @@ namespace REST.API.GlobalExceptions.Middlewares
                 {
                     Status = HttpStatusCode.InternalServerError,
                     IsError = true,
-                    ErrorDetails = CommonException.SomeUnknownError
+                    ErrorDetails = CommonExceptionConstants.SomeUnknownError
                 };
 
                 var serializedResponseMetadata = JsonConvert.SerializeObject(responseMetadata);

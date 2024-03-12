@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Asp.Versioning;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using REST.API.Features.Constants;
 using REST.API.GlobalExceptions;
 using REST.API.GlobalExceptions.Constants;
 using REST.API.GlobalExceptions.Exceptions;
@@ -10,13 +12,14 @@ namespace REST.API.Features.Controllers
     /// <summary>
     /// Controller class contains API methods for inbuild and custom exceptions
     /// </summary>
-    [Route("api/global/exception")]
     [ApiController]
+    [Route("api/global/exception")]
     public class GlobalExceptionController : ControllerBase
     {
-        public GlobalExceptionController()
+        private readonly ILogger<GlobalExceptionController> _logger;
+        public GlobalExceptionController(ILogger<GlobalExceptionController> logger)
         {
-
+            _logger = logger;
         }
 
         /// <summary>
@@ -26,11 +29,12 @@ namespace REST.API.Features.Controllers
         /// <exception cref="NotImplementedException"></exception>
         [Route("invoke")]
         [HttpGet]
-        [ProducesResponseType<string>(StatusCodes.Status200OK)]
-        [ProducesResponseType<string>(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType<string>(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType<ResponseMetaData<string>>(StatusCodes.Status200OK)]
+        [ProducesResponseType<ResponseMetaData<string>>(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType<ResponseMetaData<string>>(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> Get()
         {
+            _logger.LogInformation(CommonApiConstants.Info.GlobalException);
             int x = 1; int y = 0;
             int z = x / y;
             var responseMetadata = new ResponseMetaData<string>()
@@ -49,9 +53,13 @@ namespace REST.API.Features.Controllers
         /// <exception cref="CustomApiException"></exception>
         [Route("invoke/custom")]
         [HttpGet]
+        [ProducesResponseType<ResponseMetaData<string>>(StatusCodes.Status200OK)]
+        [ProducesResponseType<ResponseMetaData<string>>(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType<ResponseMetaData<string>>(StatusCodes.Status500InternalServerError)]
         public Task<IActionResult> GetCustom()
         {
-            throw new CustomApiException(CommonException.CustomSomeUnknownError);
+            _logger.LogInformation(CommonApiConstants.Info.CustomException);
+            throw new CustomApiException(CommonExceptionConstants.CustomSomeUnknownError);
         }
     }
 }

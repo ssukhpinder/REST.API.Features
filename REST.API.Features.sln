@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34525.116
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "REST.API.Features", "REST.API.Features\REST.API.Features.csproj", "{CF4E04A0-770C-40FA-B80B-7ACB42A316D6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "REST.API.Features", "REST.API.Features\REST.API.Features.csproj", "{CF4E04A0-770C-40FA-B80B-7ACB42A316D6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "REST.API.GlobalExceptions", "REST.API.GlobalExceptions\REST.API.GlobalExceptions.csproj", "{6A7AD8B4-8BD8-49BC-996E-6565D322F8E3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "REST.API.GlobalExceptions", "REST.API.GlobalExceptions\REST.API.GlobalExceptions.csproj", "{6A7AD8B4-8BD8-49BC-996E-6565D322F8E3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "REST.API.Versioning", "REST.API.Versioning\REST.API.Versioning.csproj", "{ADBFC4F5-6BB0-480D-879B-94248DD0EABC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{6A7AD8B4-8BD8-49BC-996E-6565D322F8E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6A7AD8B4-8BD8-49BC-996E-6565D322F8E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6A7AD8B4-8BD8-49BC-996E-6565D322F8E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADBFC4F5-6BB0-480D-879B-94248DD0EABC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADBFC4F5-6BB0-480D-879B-94248DD0EABC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADBFC4F5-6BB0-480D-879B-94248DD0EABC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADBFC4F5-6BB0-480D-879B-94248DD0EABC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

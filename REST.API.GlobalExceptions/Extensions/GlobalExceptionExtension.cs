@@ -10,6 +10,11 @@ namespace REST.API.GlobalExceptions.Extensions
 {
     public static class GlobalExceptionExtension
     {
+        /// <summary>
+        /// Extension method to handle exceptions globally
+        /// </summary>
+        /// <param name="app"></param>
+        /// <returns></returns>
         public static IApplicationBuilder UseGlobalExceptionHandler(this IApplicationBuilder app)
         {
             #region Global Exception Middleware

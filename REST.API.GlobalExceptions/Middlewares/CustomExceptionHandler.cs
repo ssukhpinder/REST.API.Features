@@ -41,16 +41,16 @@ namespace REST.API.GlobalExceptions.Middlewares
                 {
                     Status = HttpStatusCode.InternalServerError,
                     IsError = true,
-                    ErrorDetails = CommonException.SomeUnknownError
+                    ErrorDetails = CommonExceptionConstants.SomeUnknownError
                 };
 
                 if (exception is CustomApiException)
                 {
-                    responseMetadata.ErrorDetails = CommonException.CustomSomeUnknownError;
+                    responseMetadata.ErrorDetails = CommonExceptionConstants.CustomSomeUnknownError;
                 }
                 else
                 {
-                    responseMetadata.ErrorDetails = CommonException.SomeUnknownError;
+                    responseMetadata.ErrorDetails = CommonExceptionConstants.SomeUnknownError;
                 }
 
                 var serializedResponseMetadata = JsonConvert.SerializeObject(responseMetadata);
