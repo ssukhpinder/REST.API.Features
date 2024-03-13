@@ -7,13 +7,14 @@ using REST.API.GlobalExceptions.Constants;
 using REST.API.GlobalExceptions.Exceptions;
 using System.Net;
 
-namespace REST.API.Features.Controllers
+namespace REST.API.Features.Controllers.v1
 {
     /// <summary>
     /// Controller class contains API methods for inbuild and custom exceptions
     /// </summary>
     [ApiController]
-    [Route("api/global/exception")]
+    [ApiVersion(1)]
+    [Route("api/v{v:apiVersion}/global/exception")]
     public class GlobalExceptionController : ControllerBase
     {
         private readonly ILogger<GlobalExceptionController> _logger;
@@ -39,7 +40,7 @@ namespace REST.API.Features.Controllers
             int z = x / y;
             var responseMetadata = new ResponseMetaData<string>()
             {
-                Status = System.Net.HttpStatusCode.OK,
+                Status = HttpStatusCode.OK,
                 IsError = false
             };
             return StatusCode((int)responseMetadata.Status, responseMetadata);

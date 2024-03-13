@@ -7,6 +7,7 @@
     <InvariantGlobalization>true</InvariantGlobalization>
     <UserSecretsId>ed533135-b96c-4758-948b-c63aca36cd19</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+	<GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -18,6 +19,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\REST.API.GlobalExceptions\REST.API.GlobalExceptions.csproj" />
+    <ProjectReference Include="..\REST.API.ModelValidation\REST.API.ModelValidation.csproj" />
     <ProjectReference Include="..\REST.API.Versioning\REST.API.Versioning.csproj" />
   </ItemGroup>
 

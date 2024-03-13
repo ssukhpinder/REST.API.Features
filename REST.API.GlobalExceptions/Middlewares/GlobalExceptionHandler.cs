@@ -15,7 +15,7 @@ using System.Threading.Tasks;
 namespace REST.API.GlobalExceptions.Middlewares
 {
     /// <summary>
-    /// Global middleware which will be invoked one any exception is triggered within the application
+    /// Global middleware which will be invoked if any exception is triggered within the application
     /// </summary>
     public class GlobalExceptionHandler
     {
