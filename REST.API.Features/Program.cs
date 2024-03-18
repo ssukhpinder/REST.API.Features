@@ -1,12 +1,8 @@
-using Asp.Versioning;
-using Asp.Versioning.ApiExplorer;
-using Microsoft.Extensions.DependencyInjection.Extensions;
+using REST.API.EFCore.Extensions;
 using REST.API.Features.Extensions;
 using REST.API.GlobalExceptions.Extensions;
 using REST.API.ModelValidation.Extensions;
-using REST.API.GlobalExceptions.Middlewares;
 using REST.API.Versioning.Extensions;
-using Microsoft.AspNetCore.Mvc;
 using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -30,6 +26,9 @@ builder.Services.UseAppVersioningHandler();
 
 // Add model validation
 builder.Services.UseModelValidationHandler();
+
+// Add ef core database context
+builder.Services.UseEfCoreDbHandler(connectionString: builder.Configuration.GetConnectionString("DefaultConnection"));
 
 var app = builder.Build();
 

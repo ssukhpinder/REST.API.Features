@@ -13,7 +13,8 @@ namespace REST.API.Features.Extensions
         {
 
             #region Swagger UI Versioning
-            app.UseSwaggerUI(options => {
+            app.UseSwaggerUI(options =>
+            {
 
                 var provider = app.ApplicationServices.GetRequiredService<IApiVersionDescriptionProvider>();
 

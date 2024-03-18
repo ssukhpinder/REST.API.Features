@@ -2,12 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using REST.API.ModelValidation.Constants;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace REST.API.ModelValidation.Filters
 {
@@ -32,7 +27,7 @@ namespace REST.API.ModelValidation.Filters
                         Status = System.Net.HttpStatusCode.BadRequest,
                         IsError = true,
                         ErrorDetails = CommonValidationConstants.ValidationFailed,
-                        Message = $"[{string.Join(" , ", errors.ToArray())}]",
+                        Message = $"[{string.Join(" , ", [.. errors])}]",
                         Result = null
                     }
                 );

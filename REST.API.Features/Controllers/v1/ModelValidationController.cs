@@ -1,5 +1,4 @@
 ﻿using Asp.Versioning;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using REST.API.Features.Constants;
 using REST.API.Features.Models;
@@ -8,19 +7,17 @@ using System.ComponentModel.DataAnnotations;
 
 namespace REST.API.Features.Controllers.v1
 {
+
     /// <summary>
     /// Controller class contains API methods to demonstrate Model Validation 
     /// </summary>
+    /// <param name="logger"></param>
     [ApiController]
     [ApiVersion(1)]
     [Route("api/v{v:apiVersion}/model")]
-    public class ModelValidationController : ControllerBase
+    public class ModelValidationController(ILogger<ModelValidationController> logger) : ControllerBase
     {
-        private readonly ILogger<ModelValidationController> _logger;
-        public ModelValidationController(ILogger<ModelValidationController> logger)
-        {
-            _logger = logger;
-        }
+        private readonly ILogger<ModelValidationController> _logger = logger;
 
         /// <summary>
         /// POST method to demonstrate global API validation 
@@ -42,7 +39,7 @@ namespace REST.API.Features.Controllers.v1
         [ProducesResponseType<ResponseMetaData<string>>(StatusCodes.Status200OK)]
         [ProducesResponseType<ResponseMetaData<string>>(StatusCodes.Status400BadRequest)]
         [ProducesResponseType<ResponseMetaData<string>>(StatusCodes.Status500InternalServerError)]
-        public IActionResult PostData([FromBody][Required]ModelValidationExample modelValidationExample)
+        public IActionResult PostData([FromBody][Required] ModelValidationExample modelValidationExample)
         {
             var responseMetadata = new ResponseMetaData<string>()
             {

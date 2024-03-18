@@ -1,25 +1,20 @@
 ﻿using Asp.Versioning;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using REST.API.Features.Constants;
 using REST.API.GlobalExceptions;
-using System.Net;
 
 namespace REST.API.Features.Controllers.v1
 {
     /// <summary>
     /// Controller class contains API methods to demonstrate versioning 
     /// </summary>
+    /// <param name="logger"></param>
     [ApiController]
     [ApiVersion(1)]
     [Route("api/v{v:apiVersion}/[controller]")]
-    public class VersionController : ControllerBase
+    public class VersionController(ILogger<VersionController> logger) : ControllerBase
     {
-        private readonly ILogger<VersionController> _logger;
-        public VersionController(ILogger<VersionController> logger)
-        {
-            _logger = logger;
-        }
+        private readonly ILogger<VersionController> _logger = logger;
 
         /// <summary>
         /// Api method to return success message from controller version 1

@@ -2,15 +2,7 @@
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using REST.API.GlobalExceptions.Constants;
-using REST.API.GlobalExceptions.Exceptions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
-using System.Net.Http;
-using System.Text;
-using System.Text.Json.Serialization;
-using System.Threading.Tasks;
 
 namespace REST.API.GlobalExceptions.Middlewares
 {
